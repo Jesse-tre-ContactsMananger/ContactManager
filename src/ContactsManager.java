@@ -13,7 +13,7 @@ public class ContactsManager {
 
 //
 //        Load all of the contacts by calling a method that returns a List of Contact objects.
-        System.out.println(contactLoad());
+        contactLoad();
 //
 ////        Call a method that shows the user the main menu and returns their choice of action.
 //        contactMainMethod();
@@ -30,6 +30,9 @@ public class ContactsManager {
     public static List<String> contactLoad(){
         String directory = "data";
         String filename = "contacts.txt";
+        List<String> contactList;
+        Path contactsPath = Paths.get("dataDirectory", "dataFile");
+
 
         Path dataDirectory = Paths.get(directory);
         Path dataFile = Paths.get(directory, filename);
@@ -49,8 +52,7 @@ public class ContactsManager {
                 throw new RuntimeException(e);
             }
         }
-        Path contactsPath = Paths.get("dataDirectory", "dataFile");
-        List<String> contactList;
+
         try {
             contactList = Files.readAllLines(contactsPath);
         } catch (IOException e) {
