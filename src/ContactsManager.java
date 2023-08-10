@@ -27,11 +27,11 @@ public class ContactsManager {
 
 
     }
-    public static List<String> contactLoad(){
+    public static void contactLoad(){
         String directory = "data";
         String filename = "contacts.txt";
         List<String> contactList;
-        Path contactsPath = Paths.get("dataDirectory", "dataFile");
+
 
 
         Path dataDirectory = Paths.get(directory);
@@ -52,14 +52,24 @@ public class ContactsManager {
                 throw new RuntimeException(e);
             }
         }
-
+        Path contactsPath = Paths.get("data", "contacts.txt");
         try {
             contactList = Files.readAllLines(contactsPath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return contactList;
+        for (int i = 0; i < contactList.size(); i += 1) {
+//            System.out.println((i + 1) + ": " + contactList.get(i));
+            String[] arrOfStr = contactList.get(i).split(" ", 2 );
+
+            Contacts contact = new Contacts(arrOfStr[0],arrOfStr[1]);
+
+        }
+
+
+        return ;
     }
+
 
 
 }

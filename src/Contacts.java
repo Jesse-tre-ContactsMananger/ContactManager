@@ -1,10 +1,15 @@
 package src;
-    public class Person {
+    public class  Contacts {
 
         private String name;
-
-        public Person(String name) {
+        private String phoneNumber;
+        public Contacts(String name) {
             this.name = name;
+        }
+
+        public Contacts(String name,String phoneNumber) {
+            this.name = name;
+            this.phoneNumber = phoneNumber;
         }
 
         public String getName() {
@@ -15,12 +20,12 @@ package src;
             this.name = name;
         }
 
-        public void sayHello() {
-            System.out.printf("Hello, %s%n", this.name);
-
+        public void setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
         }
+
 
     }
 
-}
+
 
