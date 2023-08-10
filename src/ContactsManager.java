@@ -1,9 +1,10 @@
-package src;
+//package src;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsManager {
@@ -13,7 +14,10 @@ public class ContactsManager {
 
 //
 //        Load all of the contacts by calling a method that returns a List of Contact objects.
-        contactLoad();
+        ArrayList<Contacts> thePeeps = contactLoad();
+        for(Contacts person : thePeeps) {
+            System.out.println(person.getName());
+        }
 //
 ////        Call a method that shows the user the main menu and returns their choice of action.
 //        contactMainMethod();
@@ -27,7 +31,7 @@ public class ContactsManager {
 
 
     }
-    public static void contactLoad(){
+    public static ArrayList<Contacts> contactLoad(){
         String directory = "data";
         String filename = "contacts.txt";
         List<String> contactList;
@@ -58,16 +62,18 @@ public class ContactsManager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        ArrayList<Contacts> theContactObs = new ArrayList<>();
         for (int i = 0; i < contactList.size(); i += 1) {
 //            System.out.println((i + 1) + ": " + contactList.get(i));
             String[] arrOfStr = contactList.get(i).split(" ", 2 );
 
             Contacts contact = new Contacts(arrOfStr[0],arrOfStr[1]);
+            theContactObs.add(contact);
 
         }
 
-
-        return ;
+        return theContactObs;
     }
 
 
