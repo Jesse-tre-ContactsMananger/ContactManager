@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class ContactMainMethod {
+public class ContactMainMenu {
 
-    public static int contactMainMethod() {
+    public static int contactMainMenu() {
         int userInput = 0;
         Scanner sc = new Scanner(System.in);
 
