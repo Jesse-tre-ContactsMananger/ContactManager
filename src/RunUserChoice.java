@@ -25,9 +25,10 @@ public class RunUserChoice {
 
         } else if (userChoice == 3) {
             getUserWantedContact(thePeeps);
+
+        } else if (userChoice == 4) {
+            removeUserWantedContact(thePeeps);
         }
-//        } else if (userChoice == 4) {
-//            removeUserWantedContact(thePeeps);
 //        } else if (5) {
 //            closeApp();
 //        }
@@ -80,5 +81,19 @@ public class RunUserChoice {
         RunUserChoice.run(userChoice, thepeeps);
 
     }
+    public static void  removeUserWantedContact(ArrayList<Contacts> thepeeps){
+        System.out.println("REMOVE USER");
+        String name = userSC.nextLine();
+        for (int i = 0; i < thepeeps.size(); i += 1){
+            if(name.equals(thepeeps.get(i).getName())){
+                thepeeps.remove(i);
+            }
+        }
+        System.out.println("USER REMOVED");
+        System.out.println("\n\nMAIN MENU\n\n");
+        int userChoice =  ContactMainMenu.contactMainMenu();
+        RunUserChoice.run(userChoice, thepeeps);
+    }
+
 
 }
