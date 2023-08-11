@@ -21,7 +21,7 @@ public class ContactMainMenu {
             userInput = sc.nextInt();
         }
 
-        sc.close();
+
         return userInput;
     }
 

@@ -39,7 +39,9 @@ public class RunUserChoice {
         for (int i = 0; i < thepeeps.size(); i += 1) {
             System.out.println(thepeeps.get(i).getName() + " | " + thepeeps.get(i).getPhoneNumber());
         }
-
+        System.out.println("\n\nMAIN MENU\n\n");
+        int userChoice =  ContactMainMenu.contactMainMenu();
+        RunUserChoice.run(userChoice, thepeeps);
     }
 
 
