@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -97,7 +96,6 @@ public class RunUserChoice {
     public static void killApp(ArrayList<Contacts> thepeeps) {
         String directory = "data";
         String filename = "contacts.txt";
-        List<String> contactList;
 
         Path dataDirectory = Paths.get(directory);
         Path dataFile = Paths.get(directory, filename);
@@ -130,7 +128,7 @@ public class RunUserChoice {
             e.printStackTrace();
         }
 
-
+        userSC.close();
         System.exit(0);
     }
 }
