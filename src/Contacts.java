@@ -1,4 +1,4 @@
-//package src;
+package src;
     public class  Contacts {
 
         private String name;
@@ -12,8 +12,13 @@
             this.phoneNumber = phoneNumber;
         }
 
+
         public String getName() {
             return this.name;
+        }
+
+        public String getPhoneNumber() {
+            return phoneNumber;
         }
 
         public void setName(String name) {

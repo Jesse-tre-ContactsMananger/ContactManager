@@ -1,3 +1,5 @@
+package src;
+
 import java.util.ArrayList;
 
 
@@ -13,20 +15,33 @@ public class RunUserChoice {
 //        4. Delete an existing contact.
 //        5. Exit.
 
+
         if (userChoice == 1) {
             showContacts(thePeeps);
-        } else if (userChoice == 2) {
-            addContact(thePeeps);
-        } else if (userChoice == 3) {
-            getUserWantedContact(thePeeps);
-        } else if (userChoice == 4) {
-            removeUserWantedContact(thePeeps);
-        } else if (5) {
-            closeApp();
         }
+//        } else if (userChoice == 2) {
+//            addContact(thePeeps);
+//        } else if (userChoice == 3) {
+//            getUserWantedContact(thePeeps);
+//        } else if (userChoice == 4) {
+//            removeUserWantedContact(thePeeps);
+//        } else if (5) {
+//            closeApp();
+//        }
 
-        ContactMainMenu.contactMainMenu();
+//        ContactMainMenu.contactMainMenu();
 
     }
+    public static void showContacts(ArrayList<Contacts> thepeeps){
+
+        System.out.println("Name | Phone number");
+        System.out.println("---------------");
+        for (int i = 0; i < thepeeps.size(); i += 1) {
+            System.out.println(thepeeps.get(i).getName() + " | " + thepeeps.get(i).getPhoneNumber());
+        }
+
+    }
+
+
 
 }
