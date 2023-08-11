@@ -1,5 +1,5 @@
-package src;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,13 +15,6 @@ public class RunUserChoice {
 
     public static void run(int userChoice, ArrayList<Contacts> thePeeps) {
 
-//        1. View contacts.
-//        2. Add a new contact.
-//        3. Search a contact by name.
-//        4. Delete an existing contact.
-//        5. Exit.
-
-
         if (userChoice == 1) {
             showContacts(thePeeps);
         } else if (userChoice == 2) {
@@ -33,11 +26,10 @@ public class RunUserChoice {
         } else if (userChoice == 4) {
             removeUserWantedContact(thePeeps);
 
-        } else if (5) {
+        } else if (userChoice == 5) {
             killApp(thePeeps);
         }
 
-//        ContactMainMenu.contactMainMenu();
 
     }
 
@@ -118,16 +110,25 @@ public class RunUserChoice {
             }
         }
 
-        if (! Files.exists(dataFile)) {
+        if (!Files.exists(dataFile)) {
             try {
                 Files.createFile(dataFile);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-        Path contactsPath = Paths.get("data", "contacts.txt");
 
 
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("data/contacts.txt"));
+            for (Contacts obj : thepeeps) {
+                writer.write(String.format("%s %s", obj.getName(), obj.getPhoneNumber()));
+                writer.newLine();
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         System.exit(0);
