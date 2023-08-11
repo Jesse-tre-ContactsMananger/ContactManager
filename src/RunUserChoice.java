@@ -8,6 +8,7 @@ public class RunUserChoice {
     static Scanner userSC = new Scanner(System.in);
 
 
+
     public static void run(int userChoice, ArrayList<Contacts> thePeeps) {
 
 //        1. View contacts.
@@ -21,9 +22,10 @@ public class RunUserChoice {
             showContacts(thePeeps);
         } else if (userChoice == 2) {
             addContact(thePeeps);
+
+        } else if (userChoice == 3) {
+            getUserWantedContact(thePeeps);
         }
-//        } else if (userChoice == 3) {
-//            getUserWantedContact(thePeeps);
 //        } else if (userChoice == 4) {
 //            removeUserWantedContact(thePeeps);
 //        } else if (5) {
@@ -62,6 +64,21 @@ public class RunUserChoice {
         int userChoice =  ContactMainMenu.contactMainMenu();
         RunUserChoice.run(userChoice, thepeeps);
     }
+    public static void getUserWantedContact(ArrayList<Contacts> thepeeps){
+        System.out.println("ENTER USERNAME");
+        String name = userSC.nextLine();
+        for (int i = 0; i < thepeeps.size(); i += 1) {
+           if(name.equals(thepeeps.get(i).getName())){
+                System.out.println("Name | Phone number");
+                System.out.println("---------------");
+                System.out.println(thepeeps.get(i).getName() + " | " + thepeeps.get(i).getPhoneNumber());
 
+            }
+        }
+        System.out.println("\n\nMAIN MENU\n\n");
+        int userChoice =  ContactMainMenu.contactMainMenu();
+        RunUserChoice.run(userChoice, thepeeps);
+
+    }
 
 }
