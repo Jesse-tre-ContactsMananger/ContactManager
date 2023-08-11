@@ -1,10 +1,11 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class RunUserChoice {
-
+    static Scanner userSC = new Scanner(System.in);
 
 
     public static void run(int userChoice, ArrayList<Contacts> thePeeps) {
@@ -18,9 +19,9 @@ public class RunUserChoice {
 
         if (userChoice == 1) {
             showContacts(thePeeps);
+        } else if (userChoice == 2) {
+            addContact(thePeeps);
         }
-//        } else if (userChoice == 2) {
-//            addContact(thePeeps);
 //        } else if (userChoice == 3) {
 //            getUserWantedContact(thePeeps);
 //        } else if (userChoice == 4) {
@@ -44,6 +45,23 @@ public class RunUserChoice {
         RunUserChoice.run(userChoice, thepeeps);
     }
 
+    public static void addContact(ArrayList<Contacts> thepeeps){
+
+//        System.out.println("Name | Phone number");
+        System.out.println("ENTER USERNAME AND PHONE NUMBER");
+        String nameAndPhone = userSC.nextLine();
+        String[] arrOfStr = nameAndPhone.split(" ", 2 );
+
+        Contacts contact = new Contacts(arrOfStr[0],arrOfStr[1]);
+        thepeeps.add(contact);
+
+
+        System.out.println("Contact Added");
+
+        System.out.println("\n\nMAIN MENU\n\n");
+        int userChoice =  ContactMainMenu.contactMainMenu();
+        RunUserChoice.run(userChoice, thepeeps);
+    }
 
 
 }
