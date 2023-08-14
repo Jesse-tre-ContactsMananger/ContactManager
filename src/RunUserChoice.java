@@ -55,7 +55,7 @@ public class RunUserChoice {
         thepeeps.add(contact);
 
 
-        System.out.println("Contact Added");
+        System.out.println("\n\nContact Added");
 
         System.out.println("\n\nMAIN MENU\n\n");
         int userChoice = ContactMainMenu.contactMainMenu();
@@ -67,7 +67,7 @@ public class RunUserChoice {
         String name = userSC.nextLine();
         for (int i = 0; i < thepeeps.size(); i += 1) {
             if (name.equals(thepeeps.get(i).getName())) {
-                System.out.println("Name | Phone number");
+                System.out.println("\n\nName | Phone number");
                 System.out.println("---------------");
                 System.out.println(thepeeps.get(i).getName() + " | " + thepeeps.get(i).getPhoneNumber());
 
@@ -87,7 +87,7 @@ public class RunUserChoice {
                 thepeeps.remove(i);
             }
         }
-        System.out.println("USER REMOVED");
+        System.out.println("\n\nUSER REMOVED");
         System.out.println("\n\nMAIN MENU\n\n");
         int userChoice = ContactMainMenu.contactMainMenu();
         RunUserChoice.run(userChoice, thepeeps);
